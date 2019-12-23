@@ -33,7 +33,7 @@ $(document).ready(function() {
   new WOW().init();
 
   //Валидация формы
-  $('modal__form').validate({
+  $('.modal__form').validate({
     errorClass: "invalid",
     rules: {
       // строчное правило
@@ -60,6 +60,58 @@ $(document).ready(function() {
           required: "Обязательно укажите email",
           email: "Введите в формате name@domain.com"
         }
+      }
+  });
+
+  $('.footer__form').validate({
+    errorClass: "invalid",
+    rules: {
+      // строчное правило
+      userName: {
+        required: true,
+        minlength: 2,
+        maxlength: 15
+      },
+      userPhone: "required",
+      // правило-объект (блок)
+      userQuestion: {
+        required: true,
+        minlength: 2
+      }
+    }, // сообщения
+      messages: {
+        userName: { 
+          required: "Имя обязательно",
+          minlength: "Слишком короткое имя",
+          maxlength: "Имя не должно превышать 15 символов"
+        },
+        userPhone: "Телефон обязателен",
+        userQuestion: {
+          required: "Укажите свой вопрос",
+          minlength: "Что вы хотите узнать"
+        }
+      }
+  });
+
+  $('.control__form').validate({
+    errorClass: "invalid",
+    rules: {
+      // строчное правило
+      userName: {
+        required: true,
+        minlength: 2,
+        maxlength: 15
+      },
+      userPhone: "required"
+      // правило-объект (блок)
+    }, // сообщения
+      messages: {
+        userName: { 
+          required: "Имя обязательно",
+          minlength: "Слишком короткое имя",
+          maxlength: "Имя не должно превышать 15 символов"
+        },
+        userPhone: "Телефон обязателен",
       }
   });
 
